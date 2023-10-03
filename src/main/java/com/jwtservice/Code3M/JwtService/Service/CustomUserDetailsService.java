@@ -12,7 +12,8 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
-
+//    @Autowired
+//    private UserEntity userEntity;
     @Autowired
     private RestTemplate restTemplate;
 
