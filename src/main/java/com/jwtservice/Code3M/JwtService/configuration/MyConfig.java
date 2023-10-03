@@ -1,4 +1,6 @@
 package com.jwtservice.Code3M.JwtService.configuration;
+import com.jwtservice.Code3M.JwtService.Service.CustomUserDetailsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -11,15 +13,19 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @Configuration
-class MyConfig {
-    @Bean
-    public UserDetailsService userDetailsService() {
-        UserDetails userDetails = User.builder().
-                username("Mahesh")
-                .password(passwordEncoder().encode("Mahi@1234"))./*roles("ADMIN").*/
-                build();
-        return new InMemoryUserDetailsManager(userDetails);
-    }
+class MyConfig  {
+
+
+    @Autowired
+    private CustomUserDetailsService customUserDetailsService;
+//    @Bean
+//    public UserDetailsService userDetailsService() {
+//        UserDetails userDetails = User.builder().
+//                username("Mahesh")
+//                .password(passwordEncoder().encode("Mahi@1234"))./*roles("ADMIN").*/
+//                build();
+//        return new InMemoryUserDetailsManager(userDetails);
+//    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
